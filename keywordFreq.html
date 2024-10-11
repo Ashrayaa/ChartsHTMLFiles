@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyword Frequency Chart</title>
+
+    <!-- Highcharts Core -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <!-- Highcharts Word Cloud Module -->
+    <script src="https://code.highcharts.com/modules/wordcloud.js"></script>
+
+    <style>
+        /* Add any custom styling for the chart container */
+        #container {
+            height: 600px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Custom color for the word cloud points */
+        .highcharts-wordcloud-series .highcharts-point {
+            fill: #1f78b4; /* Modify this color as needed */
+        }
+    </style>
+</head>
+<body>
+
+<div id="container"></div>
+
+<script>
+    // Initialize the Word Cloud chart once the DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', function () {
+        Highcharts.chart('container', {
+            chart: {
+                type: 'wordcloud'
+            },
+            title: {
+                text: 'Keyword Frequency'
+            },
+            series: [{
+                type: 'wordcloud',
+                data: [
+                    { name: "politics", weight: 20 },
+                    { name: "read", weight: 15 },
+                    { name: "positive", weight: 14 },
+                    { name: "attorney", weight: 13 },
+                    { name: "movie", weight: 12 },
+                    { name: "term", weight: 11 },
+                    { name: "special", weight: 10 },
+                    { name: "difficult", weight: 9 },
+                    { name: "price", weight: 8 },
+                    { name: "receive", weight: 8 },
+                    { name: "economy", weight: 7 },
+                    { name: "question", weight: 7 },
+                    { name: "live", weight: 7 },
+                    { name: "senior", weight: 6 },
+                    { name: "address", weight: 6 },
+                    { name: "body", weight: 5 },
+                    { name: "foot", weight: 5 },
+                    { name: "drop", weight: 5 }
+                    // Add more words with weight here if needed
+                ],
+                name: 'Occurrences'
+            }],
+            tooltip: {
+                pointFormat: '{point.name}: <b>{point.weight}</b>'
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

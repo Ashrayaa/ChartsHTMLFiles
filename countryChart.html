@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highcharts Map Bubble Chart</title>
+
+    <!-- Highcharts Core and Maps -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/map.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/data.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+
+    <!-- Highcharts Map Data (World Map) -->
+    <script src="https://code.highcharts.com/mapdata/custom/world.js"></script>
+
+    <style>
+        /* Add any custom styling for the map container */
+        #container {
+            height: 500px;
+            width: 100%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script>
+        // Wait for the document to load fully before initializing the chart
+        document.addEventListener('DOMContentLoaded', function () {
+            // Define the chart options
+            const chartOptions = {
+                chart: {
+                    map: 'custom/world'
+                },
+                title: {
+                    text: 'World Population 2016 by Country'
+                },
+                subtitle: {
+                    text: 'Demo of Highcharts map with bubbles'
+                },
+                mapNavigation: {
+                    enabled: true,
+                    enableButtons: true
+                },
+                colorAxis: {
+                    min: 0,
+                    stops: [
+                        [0, '#EFEFFF'],
+                        [0.67, '#4444FF'],
+                        [1, '#000022']
+                    ]
+                },
+                series: [
+                    {
+                        // The map background
+                        name: "Countries",
+                        mapData: Highcharts.maps['custom/world'],
+                        borderColor: "#A0A0A0",
+                        nullColor: "rgba(200, 200, 200, 0.3)",
+                        showInLegend: false
+                    },
+                    {
+                        // The bubble data (this is just sample data, adjust as needed)
+                        type: "mapbubble",
+                        name: "Population 2016",
+                        joinBy: ["iso-a2", "code"],
+                        data: [
+                            { code: "CN", z: 1388232693 }, // China
+                            { code: "IN", z: 1316745693 }, // India
+                            { code: "US", z: 324459463 },  // USA
+                            { code: "ID", z: 260581100 },  // Indonesia
+                            { code: "BR", z: 207353391 },  // Brazil
+                            { code: "PK", z: 197015955 },  // Pakistan
+                            { code: "NG", z: 190886311 },  // Nigeria
+                            { code: "BD", z: 162951560 },  // Bangladesh
+                            { code: "RU", z: 144342397 },  // Russia
+                            { code: "JP", z: 126045211 }   // Japan
+                        ],
+                        minSize: 4,
+                        maxSize: '15%',
+                        color: 'rgba(30, 144, 255, 0.5)',  // Color of the bubbles
+                        tooltip: {
+                            pointFormat: '{point.name}: {point.z}'
+                        }
+                    }
+                ]
+            };
+
+            // Initialize the chart in the 'container' div
+            Highcharts.mapChart('container', chartOptions);
+        });
+    </script>
+</body>
+</html>
