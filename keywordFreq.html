@@ -11,16 +11,14 @@
     <script src="https://code.highcharts.com/modules/wordcloud.js"></script>
 
     <style>
-        /* Add any custom styling for the chart container */
         #container {
             height: 600px;
             width: 100%;
             margin: 0 auto;
         }
 
-        /* Custom color for the word cloud points */
         .highcharts-wordcloud-series .highcharts-point {
-            fill: #1f78b4; /* Modify this color as needed */
+            fill: #1f78b4; 
         }
     </style>
 </head>
@@ -29,7 +27,6 @@
 <div id="container"></div>
 
 <script>
-    // Initialize the Word Cloud chart once the DOM is fully loaded
     document.addEventListener('DOMContentLoaded', function () {
         Highcharts.chart('container', {
             chart: {
@@ -59,7 +56,6 @@
                     { name: "body", weight: 5 },
                     { name: "foot", weight: 5 },
                     { name: "drop", weight: 5 }
-                    // Add more words with weight here if needed
                 ],
                 name: 'Occurrences'
             }],

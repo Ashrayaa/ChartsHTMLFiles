@@ -11,14 +11,12 @@
     <script src="https://code.highcharts.com/modules/heatmap.js"></script>
 
     <style>
-        /* Add any custom styling for the chart container */
         #container {
-            height: 600px; /* Adjust the height as needed */
+            height: 600px; 
             width: 100%;
             margin: 0 auto;
         }
         
-        /* Custom styles for heatmap cells */
         .highcharts-heatmap-series rect {
             stroke-width: 2px;
             transition: fill 0.2s;
@@ -34,7 +32,6 @@
 <div id="container"></div>
 
 <script>
-    // Initialize the Heatmap chart once the DOM is fully loaded
     document.addEventListener('DOMContentLoaded', function () {
         Highcharts.chart('container', {
             chart: {
@@ -54,7 +51,7 @@
             colorAxis: {
                 min: 0,
                 minColor: '#FFFFFF',
-                maxColor: '#3498db' // Color scale
+                maxColor: '#3498db' 
             },
             legend: {
                 align: 'right',

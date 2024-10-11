@@ -15,7 +15,6 @@
     <script src="https://code.highcharts.com/mapdata/custom/world.js"></script>
 
     <style>
-        /* Add any custom styling for the map container */
         #container {
             height: 500px;
             width: 100%;
@@ -27,9 +26,7 @@
     <div id="container"></div>
 
     <script>
-        // Wait for the document to load fully before initializing the chart
         document.addEventListener('DOMContentLoaded', function () {
-            // Define the chart options
             const chartOptions = {
                 chart: {
                     map: 'custom/world'
@@ -54,7 +51,6 @@
                 },
                 series: [
                     {
-                        // The map background
                         name: "Countries",
                         mapData: Highcharts.maps['custom/world'],
                         borderColor: "#A0A0A0",
@@ -62,7 +58,6 @@
                         showInLegend: false
                     },
                     {
-                        // The bubble data (this is just sample data, adjust as needed)
                         type: "mapbubble",
                         name: "Population 2016",
                         joinBy: ["iso-a2", "code"],
@@ -88,7 +83,6 @@
                 ]
             };
 
-            // Initialize the chart in the 'container' div
             Highcharts.mapChart('container', chartOptions);
         });
     </script>
